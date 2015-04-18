@@ -4,10 +4,11 @@ var fileinclude = require('gulp-file-include');
 
 
 gulp.task('watch', function () {
-  gulp.watch('./**.html', ['fileinclude']);
+  gulp.watch(['./**.html', './**.svg'], ['fileinclude']);
   gulp.watch('./js/**', ['js']);
   gulp.watch('./css/**', ['css']);
   gulp.watch('./data/**', ['data']);
+  gulp.watch('./img/**', ['img']);
 });
 
 
@@ -19,6 +20,11 @@ gulp.task('reload', function () {
 gulp.task('css', function () {
   gulp.src('./css/**')
     .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('img', function () {
+  gulp.src('./img/**')
+    .pipe(gulp.dest('./dist/img'));
 });
 
 
@@ -42,7 +48,7 @@ gulp.task('fileinclude', function () {
 });
 
 
-gulp.task('serve', ['data', 'js', 'css', 'fileinclude', 'watch'], function () {
+gulp.task('serve', ['img', 'data', 'js', 'css', 'fileinclude', 'watch'], function () {
     connect.server({
       root: './dist/',
       livereload: true
