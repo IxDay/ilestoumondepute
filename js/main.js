@@ -12,15 +12,12 @@ $( document ).ready(function() {
     return deputes;
   });
 
-
   $('.circo').click(function (e) {
     var id = $(this).attr('id').split('-'),
       dept = parseInt(id[0]), circ = parseInt(id[1]);
 
-    deputes_promise.then(function (data) {
-      $('<div>' + JSON.stringify(data[dept][circ]) + '</div>').appendTo('body').modal();
+    deputes_promise.then(function (deputes){
+      $('#depute').render(deputes[dept][circ]).appendTo('body').modal();
     });
   });
-
-
 });
