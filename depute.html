@@ -1,6 +1,37 @@
 <script type="text/template" id="depute">
   <div>
-    <h2>{{nom}}</h2>
-    <img src={{photo_url}} alt="photo_depute">
+  	<img src={{photo_url}} class="photo_depute" alt="">
+    <h3>{{nom}}</h2>
+    <p class="attributs"> 
+    	{{nom_dept}}<br>
+    	{{groupe_sigle}}, {{parti_ratt_financier}}
+    </p>
+    <img src="img/stamp-{{vote_PJLR}}.png" class="stamp" alt="">
+    <p class="message_vote">
+    	{{message_vote}}
+    </p>
+
+    <hr>
+
+    <h4>Contactez votre député :</h4>
+    <div class="container-contact">
+        <div class="contact mail">
+        	<h5>Par mail</h5>
+            <p>
+        	   <a href="mailto:{{displayMail}}" style="color:{{couleur}}">{{displayMail}}</a>
+            </p>
+        </div>
+        <div class="contact courrier">
+        <h5>Par courrier</h5>
+        	<p>
+        		Assemblée Nationnale,
+    			rue de l’Université , 75355 Paris 07 SP
+        	</p>
+        </div>
+    </div>
+
+    <p class="twitter"><a href="" style="color:{{couleur}}">Interpeler votre députer via Twitter</a></p>
+
   </div>
 </script>
+ 

@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/jquery.modal.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/map.css">
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,9 +23,47 @@
         </style>
     </head>
     <body>
-        @@include('./circonscriptions.svg')
-        @@include('./depute.html')
-        <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+
+        <header>
+            <h1>Où qu'il était mon député ?</h1>
+            <hr>
+            <p class="subtitle">
+                Le 17 avril, l'Assemblée a voté pour le projet de loi "Renseignement".<br>
+                Seuls 30 députés sur 577 étaient présents dans l'hémicycle.
+            </p>
+            <h2>Et vous, il était où votre député ?</h2>
+        </header>
+
+        <div id="carte">
+
+            <div id="legende">
+                <div id="pour">
+                    <div>
+                    </div>
+                    <span>A voté pour</span>
+                </div>
+                <div id="contre">
+                    <div>
+                    </div>
+                    <span>A voté contre</span>
+                </div>
+                <div id="abstention">
+                    <div>
+                    </div>
+                    <span>S'est abstenu</span>
+                </div>
+                <div id="absent">
+                    <div>
+                    </div>
+                    <span>Absent</span>
+                </div>
+            </div>
+
+            @@include('./circonscriptions.svg')
+        </div>
+                @@include('./depute.html')
+
+        <script src="js/jquery-1.9.1.js"></script>
         <script src="js/vendor/jquery.modal.js"></script>
         <script src="js/vendor/jquery.render.js"></script>
         <script src="js/main.js"></script>

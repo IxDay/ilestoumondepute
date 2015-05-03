@@ -56,17 +56,189 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+    font-family: Roboto, "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-family: "Roboto Slab", Roboto, "Open Sans", serif;
+    font-size: 32px;
+    font-weight: normal;
+    color: #D11D11;
+}
+
+header hr {
+    width: 20%;
+    margin: auto;
+}
+
+header .subtitle {
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+header h2 {
+    font-style: italic;
+    font-size: 22px;
+}
+
+#carte {
+    border: solid 1px #CCC;
+    width: 80%;
+    padding: 30px;
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+}
+
+#carte svg {
+    display: block;
+    margin: auto;
+}
+
+#legende {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #FFF;
+    padding: 20px 30px;
+    border: solid 1px #CCC;
+}
+
+#legende > div {
+    clear: both;
+    margin-bottom: 10px;
+}
+
+#legende > div > div {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+#legende span {
+    vertical-align: middle;
+}
+
+#legende > div#pour > div {
+    background-color: #D11D11;
+}
+
+#legende > div#contre > div {
+    background-color: #4C4946;
+}
+
+#legende > div#abstention > div {
+    background-color: #9A9892;
+}
+
+#legende > div#absent > div {
+    background-color: #DBDAD6;
+}
 
 
+/******************
+ * MODALE
+ ******************/
 
+.modal .photo_depute {
+    float: left;
+    margin-right: 30px;
+}
 
+.modal h3 {
+    font-family: "Roboto Slab", "Open Sans", serif;
+    font-size: 24px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
 
+.modal .attributs {
+    font-family: Roboto, "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: lighter;
+    color: #7F7F7F;
+    margin-top: 0;
+}
 
+.modal .stamp {
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    -ms-transform: rotate(20deg); 
+    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg);
+    height: 100px;
+}
 
+.modal .message_vote {
+    font-size: 18px;
+    background: #EEE;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 0
+}
 
+.modal .message_vote span {
+    font-weight: bold;
+}
 
+.modal h4 {
+    font-weight: lighter;
+    font-size: 22px;
+}
 
+.modal .container-contact {
+    display: table;
+}
 
+.modal .contact {
+    border-left: solid 5px #962E27;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 10px 10px 30px;  
+    width: 50%; 
+    display: table-cell;
+}
+
+.modal .contact h5 {
+    padding-left: 50px;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 30px;
+    margin: 0;
+}
+
+.modal .contact.mail h5 {
+    background-image: url(../img/mail.svg);
+}
+
+.modal .contact.courrier h5 {
+    background-image: url(../img/courrier.svg);
+}
+
+.modal .twitter {
+    text-align: center;   
+    margin: 30px 0;
+}
+
+.modal .twitter a {
+    padding-left: 40px;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-image: url(../img/twitter.svg);
+}
 
 
 
