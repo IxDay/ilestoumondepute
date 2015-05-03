@@ -53,13 +53,15 @@ textarea {
 
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+Author's custom styles
+========================================================================== */
 
 body {
     font-family: Roboto, "Open Sans", sans-serif;
     font-size: 14px;
 }
+
+
 
 header {
     text-align: center;
@@ -243,23 +245,23 @@ header h2 {
 
 
 /* ==========================================================================
-   Media Queries
-   ========================================================================== */
+Media Queries
+========================================================================== */
 
 @media only screen and (min-width: 35em) {
 
 }
 
 @media print,
-       (-o-min-device-pixel-ratio: 5/4),
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 120dpi) {
+(-o-min-device-pixel-ratio: 5/4),
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
 
 }
 
 /* ==========================================================================
-   Helper classes
-   ========================================================================== */
+Helper classes
+========================================================================== */
 
 .hidden {
     display: none !important;
@@ -306,8 +308,8 @@ header h2 {
 }
 
 /* ==========================================================================
-   Print styles
-   ========================================================================== */
+Print styles
+========================================================================== */
 
 @media print {
     *,
@@ -368,3 +370,71 @@ header h2 {
         page-break-after: avoid;
     }
 }
+
+/*
+html, body { margin:0; padding:0; overflow:hidden }
+svg { position:fixed; top:0; bottom:0; left:0; right:0 }
+ */
+
+.circo {
+    fill-opacity:0.5;
+    fill-rule:evenodd;
+    stroke-opacity:1;
+    stroke:white;
+    stroke-width:0.25;
+    fill:#BFBFBF
+}
+.titre {
+    font-size:40px;
+    font-style:normal;
+    font-weight:bold;
+    line-height:125%;
+    letter-spacing:0px;
+    word-spacing:0px;
+    fill:#000000;
+    fill-opacity:1;
+    stroke:none;
+    font-family:Sans
+}
+
+.titres {
+    font-size:16px;
+    font-style:normal;
+    font-weight:normal;
+    line-height:125%;
+    letter-spacing:0px;
+    word-spacing:0px;
+    fill:#000000;
+    fill-opacity:1;
+    stroke:none;
+    font-family:Sans
+}
+
+.num_etranger {
+    font-size:20px;
+    font-style:normal;
+    font-weight:normal;
+    line-height:125%;
+    letter-spacing:0px;
+    word-spacing:0px;
+    fill:#000000;
+    fill-opacity:1;
+    stroke:none;
+    font-family:Sans
+}
+
+.vide {
+    fill-opacity:0.5;
+    fill-rule:evenodd;
+    stroke-opacity:1;
+    stroke:white;
+    stroke-width:0.25;
+    fill:#D9D9D9
+}
+.dep {
+    pointer-events: none;
+    fill:none;
+    stroke:black;
+    stroke-width:0.5
+}
+

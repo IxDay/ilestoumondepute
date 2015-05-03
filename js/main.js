@@ -16,6 +16,8 @@ $( document ).ready(function() {
     return deputes;
   });
 
+  $('svg').svgPan('France');
+
   $('.circo').click(function (e) {
     var id = $(this).attr('id').split('-'),
       dept = id[0].toUpperCase(), circ = parseInt(id[1]),
