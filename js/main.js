@@ -8,6 +8,28 @@ $(document).ready(function () {
   var depute_tplt = $('#depute');
   var search_result_tplt = $('#search-result');
   var result_field = $('#results');
+  var msg_vote = {
+    'pour': {
+      'color': '#962e27',
+      'msg': 'Ce député <span style="color: {{color}}">a voté pour</span>' +
+        ' lors du vote du 14 avril',
+    },
+    'contre': {
+      'color': '#00b254',
+      'msg': 'Ce député <span style="color: {{color}}">a voté contre' +
+        '</span> lors du vote du 14 avril'
+    },
+    'absent': {
+      'color': '#962e27',
+      'msg': 'Ce député était <span style="color: {{color}}">absent</span>' +
+        ' lors du vote du 14 avril'
+    },
+    'abstention': {
+      'color': '#e78f27',
+      'msg': 'Ce député <span style="color: {{color}}>s\'est abstenue' +
+        '</span> lors du vote du 14 avril'
+    }
+  };
 
   var depute_email = function (depute) {
     var email = depute.emails[0];
@@ -70,27 +92,13 @@ $(document).ready(function () {
   }
 
   var display_modal = function (depute) {
+    var modal, vote;
     if (!depute) return;
 
-    var couleur = '#962E27';
-
-    // TODO : rendre dynamique ( absent || abstention || pour || contre )
-    var vote_PJLR = "absent";
-
-    if(vote_PJLR === "absent") {
-      var message_vote = "Ce deputé était <span style='color:" + couleur + "'>absent</span> lors du vote du 14 avril";
-
-    } else if(vote_PJLR === "abstention") {
-      var message_vote = "Ce deputé <span  style='color:" + couleur + "'>s'est abstenu</span> lors du vote du 14 avril";
-    } else {
-      var message_vote = "Ce deputé <span  style='color:" + couleur + "'>a voté " + vote_PJLR +"</span> lors du vote du 14 avril";
-    }
-
-    depute.vote_PJLR = vote_PJLR;
-    depute.message_vote = message_vote;
-    depute.couleur = couleur;
-
-    var modal = depute_tplt.render(depute).appendTo('body')
+    vote = msg_vote[depute.votePJL];
+    depute.message_vote = vote.msg;
+    depute.color = vote.color;
+    modal = depute_tplt.render(depute).appendTo('body')
     modal.on($.modal.OPEN, function () {
       if (history) history.pushState(depute, '', depute.url);
     });
