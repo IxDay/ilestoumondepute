@@ -70,6 +70,8 @@ $(document).ready(function () {
   }
 
   var display_modal = function (depute) {
+    if (!depute) return;
+
     var couleur = '#962E27';
 
     // TODO : rendre dynamique ( absent || abstention || pour || contre )
@@ -123,10 +125,6 @@ $(document).ready(function () {
   // load zoom and pane on svg
   $('svg').svgPan('France');
 
-  // if history and state load the modal
-  //if (history && history.state)
-  //  display_modal(history.state);
-  //else if (location && location.hash)
-
+  if (location && location.hash) display_depute(location.hash.slice(1));
 });
 
