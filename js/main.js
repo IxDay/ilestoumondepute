@@ -1,9 +1,13 @@
-$( document ).ready(function() {
+$(document).ready(function () {
+  'use strict';
+
   var history = window.history;
   var location = window.location;
   var url_nosdeputes_photo = 'http://www.nosdeputes.fr/depute/photo/';
-  var deputes_promise = $.when($.ajax('/data/deputes.json'));
-
+  var deputes_json = $.when($.ajax('/data/deputes.json'));
+  var depute_tplt = $('#depute');
+  var search_result_tplt = $('#search-result');
+  var result_field = $('#results');
 
   var depute_email = function (depute) {
     var email = depute.emails[0];
@@ -18,7 +22,7 @@ $( document ).ready(function() {
     return email;
   }
 
-  deputes_promise = deputes_promise.then(function (data) {
+  var deputes_promise = deputes_json.then(function (data) {
     var deputes = {};
     $.each(data.deputes, function (_, depute) {
       var circo, email;
@@ -32,9 +36,11 @@ $( document ).ready(function() {
 
       circo[depute.num_circo] = depute;
       deputes[depute.num_deptmt] = circo;
+      deputes[depute.slug] = depute;
     });
+
     $('.circo').each(function (_, circo) {
-      getDepute(circo.id).then(function (depute) {
+      get_depute(circo.id).then(function (depute) {
         if (!depute) return;
         depute.nom_dept = $(circo).children('title').html();
       });
@@ -42,7 +48,7 @@ $( document ).ready(function() {
     return deputes;
   });
 
-  function getDepute (id) {
+  var get_depute = function (id) {
     var dept, circ;
     id = id.split('-');
 
@@ -57,7 +63,13 @@ $( document ).ready(function() {
     });
   }
 
-  function displayModal(depute) {
+  var display_depute = window.display_depute = function (depute_slug) {
+    deputes_promise.then(function (deputes) {
+      display_modal(deputes[depute_slug]);
+    });
+  }
+
+  var display_modal = function (depute) {
     var couleur = '#962E27';
 
     // TODO : rendre dynamique ( absent || abstention || pour || contre )
@@ -76,7 +88,7 @@ $( document ).ready(function() {
     depute.message_vote = message_vote;
     depute.couleur = couleur;
 
-    var modal = $('#depute').render(depute).appendTo('body')
+    var modal = depute_tplt.render(depute).appendTo('body')
     modal.on($.modal.OPEN, function () {
       if (history) history.pushState(depute, '', depute.url);
     });
@@ -84,46 +96,37 @@ $( document ).ready(function() {
       if (history) history.pushState({}, '', '/');
     });
     modal.modal();
-
   }
 
   $('.circo').click(function () {
-   getDepute(this.id).then(displayModal);
+   get_depute(this.id).then(display_modal);
+  });
+
+  $('#search').keyup(function (){
+    var searchField = $('#search').val();
+    var regex = new RegExp(searchField, "i");
+
+    $('#results').empty();
+    if (searchField === '') return;
+
+    deputes_json.then(function(data){
+      $.each(data.deputes, function (_, depute) {
+        depute = depute.depute;
+        if (depute.nom.search(regex) != -1 ||
+            depute.num_deptmt.search(regex) != -1) {
+          result_field.append(search_result_tplt.render(depute));
+        }
+      });
+    });
   });
 
   // load zoom and pane on svg
   $('svg').svgPan('France');
 
   // if history and state load the modal
-  if (history && history.state)
-    displayModal(history.state);
+  //if (history && history.state)
+  //  display_modal(history.state);
   //else if (location && location.hash)
 
 });
 
-
-/*
-switch (new Date().getDay()) {
-    case 0:
-        day = "Sunday";
-        break;
-    case 1:
-        day = "Monday";
-        break;
-    case 2:
-        day = "Tuesday";
-        break;
-    case 3:
-        day = "Wednesday";
-        break;
-    case 4:
-        day = "Thursday";
-        break;
-    case 5:
-        day = "Friday";
-        break;
-    case 6:
-        day = "Saturday";
-        break;
-}
-*/
