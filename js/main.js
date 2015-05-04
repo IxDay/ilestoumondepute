@@ -95,7 +95,7 @@ $(document).ready(function () {
     modal.on($.modal.CLOSE, function () {
       if (history) history.pushState({}, '', '/');
     });
-    modal.modal();
+    modal.modal({'zIndex':20});
   }
 
   $('.circo').click(function () {

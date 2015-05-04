@@ -26,36 +26,37 @@
                 Le 17 avril, l'Assemblée a voté pour le projet de loi "Renseignement".<br>
                 Seuls 30 députés sur 577 étaient présents dans l'hémicycle.
             </p>
-            <h2>Et vous, il était où votre député ?</h2>
             @@include('./html/search.html')
         </header>
 
-        <div>
-            <!--
-            <div id="legende">
-                <div id="pour">
-                    <div>
+        <div id="carte_container">
+
+            <div id="carte">
+                <div id="legende">
+                    <div id="pour">
+                        <div>
+                        </div>
+                        <span>A voté pour</span>
                     </div>
-                    <span>A voté pour</span>
-                </div>
-                <div id="contre">
-                    <div>
+                    <div id="contre">
+                        <div>
+                        </div>
+                        <span>A voté contre</span>
                     </div>
-                    <span>A voté contre</span>
-                </div>
-                <div id="abstention">
-                    <div>
+                    <div id="abstention">
+                        <div>
+                        </div>
+                        <span>S'est abstenu</span>
                     </div>
-                    <span>S'est abstenu</span>
-                </div>
-                <div id="absent">
-                    <div>
+                    <div id="absent">
+                        <div>
+                        </div>
+                        <span>Absent</span>
                     </div>
-                    <span>Absent</span>
                 </div>
+
+                @@include('./html/circonscriptions.svg')
             </div>
-            -->
-            @@include('./html/circonscriptions.svg')
         </div>
         @@include('./html/depute.html')
         @@include('./html/search_result.html')
