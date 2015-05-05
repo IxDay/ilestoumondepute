@@ -399,6 +399,7 @@ header .subtitle {
     z-index: 20;
     width: 80%;
     margin-top: 10px;
+    left: 8%;
 }
 
 #results li {
@@ -415,6 +416,7 @@ header .subtitle {
     padding: 20px;
     color: inherit;
     text-decoration: none;
+    text-align: left;
 }
 
 
