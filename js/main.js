@@ -1,13 +1,14 @@
 $(document).ready(function () {
   'use strict';
 
-  var history = window.history;
   var location = window.location;
   var url_nosdeputes_photo = 'http://www.nosdeputes.fr/depute/photo/';
   var deputes_json = $.when($.ajax('/data/deputes.json'));
   var depute_tplt = $('#depute');
   var search_result_tplt = $('#search-result');
   var result_field = $('#results');
+  var circos = $('.circo');
+
   var msg_vote = {
     'pour': {
       'color': '#962e27',
@@ -30,6 +31,9 @@ $(document).ready(function () {
         '</span> lors du vote du 14 avril'
     }
   };
+  $.each(msg_vote, function (_, elt) {
+    elt.msg = $('<div>').append(elt.msg).render(elt, false);
+  });
 
   var depute_email = function (depute) {
     var email = depute.emails[0];
@@ -61,7 +65,8 @@ $(document).ready(function () {
       deputes[depute.slug] = depute;
     });
 
-    $('.circo').each(function (_, circo) {
+
+    circos.each(function (_, circo) {
       get_depute(circo.id).then(function (depute) {
         if (!depute) return;
         depute.nom_dept = $(circo).children('title').html();
@@ -98,18 +103,22 @@ $(document).ready(function () {
     vote = msg_vote[depute.votePJL];
     depute.message_vote = vote.msg;
     depute.color = vote.color;
+
     modal = depute_tplt.render(depute).appendTo('body')
-    modal.on($.modal.OPEN, function () {
-      if (history) history.pushState(depute, '', depute.url);
-    });
-    modal.on($.modal.CLOSE, function () {
-      if (history) history.pushState({}, '', '/');
-    });
+    modal.on($.modal.OPEN, function () { location.replace(depute.url); });
+    modal.on($.modal.CLOSE, function () { location.replace('/'); });
     modal.modal({'zIndex':20});
   }
 
-  $('.circo').click(function () {
-   get_depute(this.id).then(display_modal);
+
+  //this trick avoids click event on draggable
+  circos.on('mousedown', function (evt) {
+    circos.on('mouseup mousemove', function handler(evt) {
+      if (evt.type === 'mouseup') {
+        get_depute(this.id).then(display_modal);
+      }
+      circos.off('mouseup mousemove', handler);
+    });
   });
 
   $('#search').keyup(function (){
@@ -133,6 +142,6 @@ $(document).ready(function () {
   // load zoom and pane on svg
   $('svg').svgPan('France');
 
-  if (location && location.hash) display_depute(location.hash.slice(1));
+  if (location.hash) display_depute(location.hash.slice(1));
 });
 
