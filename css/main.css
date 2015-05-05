@@ -56,17 +56,17 @@ textarea {
 Author's custom styles
 ========================================================================== */
 
-html, body { 
-    margin:0; 
-    padding:0; 
+html, body {
+    margin:0;
+    padding:0;
     height: 100%;
 }
 
-svg { 
-    position:fixed; 
-    top:200; 
-    left:0; 
-    width: 100%; 
+svg {
+    position:fixed;
+    top:200;
+    left:0;
+    width: 100%;
     height: 100%
 }
 
@@ -106,7 +106,7 @@ header .subtitle {
 #carte {
     margin: 10px 20px;
     height: 95%;
-    border: solid 1px #CCC; 
+    border: solid 1px #CCC;
     padding-right: 200px;
 }
 
