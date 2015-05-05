@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   var location = window.location;
   var url_nosdeputes_photo = 'http://www.nosdeputes.fr/depute/photo/';
-  var deputes_json = $.when($.ajax('/data/deputes.json'));
+  var deputes_json = $.when($.ajax('/data/deputes-vote.json'));
   var depute_tplt = $('#depute');
   var search_result_tplt = $('#search-result');
   var result_field = $('#results');
