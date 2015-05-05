@@ -178,6 +178,7 @@ header .subtitle {
 .modal .photo_depute {
     float: left;
     margin-right: 30px;
+    width: 20%;
 }
 
 .modal h3 {
@@ -185,6 +186,7 @@ header .subtitle {
     font-size: 24px;
     font-weight: lighter;
     margin-bottom: 10px;
+    width: 70%;
 }
 
 .modal .attributs {
@@ -195,14 +197,19 @@ header .subtitle {
     margin-top: 0;
 }
 
+.modal .attributs a {
+    font-size: 14px;
+    text-decoration: none;
+ }
+
 .modal .stamp {
     position: absolute;
     right: 30px;
-    top: 40px;
+    top: 60px;
     -ms-transform: rotate(20deg);
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
-    height: 100px;
+    width: 25%;
 }
 
 .modal .message_vote {
@@ -227,7 +234,6 @@ header .subtitle {
 }
 
 .modal .contact {
-    border-left: solid 5px #962E27;
     display: inline-block;
     vertical-align: top;
     padding: 10px 10px 10px 30px;
