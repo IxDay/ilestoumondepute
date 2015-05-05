@@ -70,6 +70,7 @@ $(document).ready(function () {
       get_depute(circo.id).then(function (depute) {
         if (!depute) return;
         depute.nom_dept = $(circo).children('title').html();
+        $(circo).attr('class', 'circo ' + depute.votePJL);
       });
     });
     return deputes;
@@ -105,8 +106,8 @@ $(document).ready(function () {
     depute.color = vote.color;
 
     modal = depute_tplt.render(depute).appendTo('body')
-    modal.on($.modal.OPEN, function () { location.replace(depute.url); });
-    modal.on($.modal.CLOSE, function () { location.replace('/'); });
+    modal.on($.modal.OPEN, function () { location.replace('#'+depute.slug); });
+    modal.on($.modal.CLOSE, function () { location.replace('#'); });
     modal.modal({'zIndex':20});
   }
 

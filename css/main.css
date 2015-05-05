@@ -278,13 +278,24 @@ header .subtitle {
  ******/
 
 .circo {
-    fill-opacity:0.5;
+    fill-opacity:1;
     fill-rule:evenodd;
     stroke-opacity:1;
     stroke:white;
-    stroke-width:2px;
+    stroke-width:0.5;
     fill:#D5DEE7;
 }
+
+.circo.pour {
+    fill: #FC4349;
+}
+.circo.contre {
+    fill: #79BDE0;
+}
+.circo.abstention {
+    fill: #293540;
+}
+
 .titre {
     font-size:40px;
     font-style:normal;
