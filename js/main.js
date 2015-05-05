@@ -21,7 +21,7 @@ $(document).ready(function () {
         '</span> lors du vote du 14 avril'
     },
     'absent': {
-      'color': '#FC4349',
+      'color': '#818f9d',
       'msg': 'Ce député était <span style="color: {{color}}">absent</span>' +
         ' lors du vote du 14 avril'
     },

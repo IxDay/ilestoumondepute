@@ -102,8 +102,8 @@ header hr {
 
 header .subtitle {
     font-weight: lighter;
-    font-size: 16px;
-    margin: 10px 20px;
+    font-size: 20px;
+    margin: 30px 20px;
 }
 
 #carte_container {
@@ -116,7 +116,7 @@ header .subtitle {
 
 #carte {
     height: 100%;
-    border-left: solid 3px #EEE; 
+    border-left: solid 1px #EEE; 
     overflow: hidden;
 }
 
@@ -155,19 +155,19 @@ header .subtitle {
 }
 
 #legende > div#pour > div {
-    background-color: #D11D11;
+    background-color: #FC4349;
 }
 
 #legende > div#contre > div {
-    background-color: #4C4946;
+    background-color: #79BDE0;
 }
 
 #legende > div#abstention > div {
-    background-color: #9A9892;
+    background-color: #293540;
 }
 
 #legende > div#absent > div {
-    background-color: #DBDAD6;
+    background-color: #D5DEE7;
 }
 
 
@@ -289,7 +289,7 @@ header .subtitle {
     fill:#000000;
     fill-opacity:1;
     stroke:none;
-    font-family:Sans;
+    font-family:Roboto, 'Open Sans', sans-serif;
 }
 
 .titres {
@@ -302,7 +302,7 @@ header .subtitle {
     fill:#000000;
     fill-opacity:1;
     stroke:none;
-    font-family:Sans
+    font-family:Roboto, 'Open Sans', sans-serif;
 }
 
 .num_etranger {
