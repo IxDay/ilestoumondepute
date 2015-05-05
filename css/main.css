@@ -84,14 +84,14 @@ header {
     bottom: 0;
     left: 0;
     padding-top: 40px;
-    background: #EEE;
+    //background: #EEE;
 }
 
 header h1 {
     font-family: "Roboto Slab", Roboto, "Open Sans", serif;
     font-size: 28px;
     font-weight: normal;
-    color: #D11D11;
+    color: #FC4349;
     margin: 10px 20px;
 }
 
@@ -111,11 +111,13 @@ header .subtitle {
     position: absolute;
     bottom: 0; right: 0; top: 0;
     left:25%; 
+    overflow: hidden;
 }
 
 #carte {
     height: 100%;
-    border: solid 1px #CCC; 
+    border-left: solid 3px #EEE; 
+    overflow: hidden;
 }
 
 #carte svg {
@@ -274,7 +276,7 @@ header .subtitle {
     fill-rule:evenodd;
     stroke-opacity:1;
     stroke:white;
-    stroke-width:1;
+    stroke-width:2px;
     fill:#D5DEE7;
 }
 .titre {
@@ -328,7 +330,7 @@ header .subtitle {
 .dep {
     pointer-events: none;
     fill:none;
-    stroke:#CCC;
+    stroke:#000;
     stroke-width:0.5;
 
 }
@@ -356,9 +358,9 @@ header .subtitle {
 
 #search {
     height: 40px;
-    width: 80%;
+    width: 70%;
     padding: 0 10px 0 40px;
-    margin-top: 10px;
+    margin-top: 30px;
     background-image: url(../img/search.svg);
     background-position: 10px;
     background-repeat: no-repeat;

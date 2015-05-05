@@ -11,22 +11,22 @@ $(document).ready(function () {
 
   var msg_vote = {
     'pour': {
-      'color': '#962e27',
+      'color': '#FC4349',
       'msg': 'Ce député <span style="color: {{color}}">a voté pour</span>' +
         ' lors du vote du 14 avril',
     },
     'contre': {
-      'color': '#00b254',
+      'color': '#79BDE0',
       'msg': 'Ce député <span style="color: {{color}}">a voté contre' +
         '</span> lors du vote du 14 avril'
     },
     'absent': {
-      'color': '#962e27',
+      'color': '#FC4349',
       'msg': 'Ce député était <span style="color: {{color}}">absent</span>' +
         ' lors du vote du 14 avril'
     },
     'abstention': {
-      'color': '#e78f27',
+      'color': '#293540',
       'msg': 'Ce député <span style="color: {{color}}>s\'est abstenue' +
         '</span> lors du vote du 14 avril'
     }
