@@ -4,7 +4,7 @@ var fileinclude = require('gulp-file-include');
 
 
 gulp.task('watch', function () {
-  gulp.watch(['./**.html', './**.svg'], ['fileinclude']);
+  gulp.watch(['./**/*.html', './**/*.svg'], ['fileinclude']);
   gulp.watch('./js/**', ['js']);
   gulp.watch('./css/**', ['css']);
   gulp.watch('./data/**', ['data']);
