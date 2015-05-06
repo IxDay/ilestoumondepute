@@ -7,8 +7,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+    <!-- build:css css/main.min.css -->
     <link rel="stylesheet" href="css/jquery.modal.css">
     <link rel="stylesheet" href="css/main.css">
+    <!-- endbuild -->
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,400italic,500,700,300italic,500italic|Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
 
@@ -20,13 +23,16 @@
   <body>
 
     <header>
-      <h1>Nous n'oublierons pas!</h1>
+      <h1>Nous n'oublierons pas !</h1>
       <hr>
       <p class="subtitle">
-      Le 5 mai, l'Assemblée a adopté le projet de loi "Renseignement".<br>
+      Le 5 mai, l'Assemblée a adopté le projet de loi «Renseignement».<br>
       438 voix pour, 86 voix contre.
       </p>
+      <a href="http://fr.wikipedia.org/wiki/Projet_de_loi_relatif_au_renseignement">Article wikipedia</a>
       @@include('./html/search.html')
+
+      @@include('./html/footer.html')
     </header>
 
     <div id="carte_container">
@@ -60,16 +66,14 @@
     </div>
     @@include('./html/depute.html')
     @@include('./html/search_result.html')
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>if(!window.jQuery) document.write('<scr' + 'ipt src="js/vendor/jquery-1.9.1.min.js"></scr' +'ipt>')</script>
 
-    <!-- build:js scripts/main.js -->
+    <!-- build:js js/main.min.js -->
     <script src="js/vendor/jquery.modal.js"></script>
     <script src="js/vendor/jquery.render.js"></script>
     <script src="js/vendor/jquery-svgpan.js"></script>
     <script src="js/main.js"></script>
     <!-- endbuild -->
-
   </body>
 </html>

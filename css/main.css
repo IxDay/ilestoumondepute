@@ -106,6 +106,17 @@ header .subtitle {
     margin: 30px 20px;
 }
 
+header a {
+  color: #FC4349;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 #carte_container {
     z-index: 1;
     position: absolute;
