@@ -61,10 +61,15 @@
     @@include('./html/depute.html')
     @@include('./html/search_result.html')
 
-    <script src="js/jquery-1.9.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>if(!window.jQuery) document.write('<scr' + 'ipt src="js/vendor/jquery-1.9.1.min.js"></scr' +'ipt>')</script>
+
+    <!-- build:js scripts/main.js -->
     <script src="js/vendor/jquery.modal.js"></script>
     <script src="js/vendor/jquery.render.js"></script>
     <script src="js/vendor/jquery-svgpan.js"></script>
     <script src="js/main.js"></script>
+    <!-- endbuild -->
+
   </body>
 </html>

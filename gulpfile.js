@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
 var connect = require('gulp-connect');
 var fileinclude = require('gulp-file-include');
 
@@ -11,35 +12,57 @@ gulp.task('watch', function () {
   gulp.watch('./img/**', ['img']);
 });
 
-
 gulp.task('reload', function () {
-  gulp.src('./dist/**').pipe(connect.reload());
+  return gulp.src('./dist/**').pipe(connect.reload());
 });
 
 
 gulp.task('css', function () {
-  gulp.src('./css/**')
-    .pipe(gulp.dest('./dist/css'));
+  return gulp.src('./css/**').pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('img', function () {
-  gulp.src('./img/**')
-    .pipe(gulp.dest('./dist/img'));
+  return gulp.src('./img/**').pipe(gulp.dest('./dist/img'));
 });
 
 
 gulp.task('js', function () {
-  gulp.src('./js/**')
-    .pipe(gulp.dest('./dist/js'));
+  return gulp.src('./js/**').pipe(gulp.dest('./dist/js'));
+});
+
+
+
+gulp.task('clean', function () {
+  return gulp.src('./dist').pipe($.rimraf());
+});
+
+
+gulp.task('index', function () {
+  var jsFilter = $.filter('**/*.js');
+  gulp.src('index.html')
+    .pipe($.fileInclude({prefix: '@@', basepath: '@file'}))
+    .pipe($.useref.assets())
+    .pipe(jsFilter)
+    .pipe($.uglify())
+    .pipe(jsFilter.restore())
+    .pipe($.useref.restore())
+    .pipe($.useref())
+    .pipe(gulp.dest('./dist/'));
+});
+
+
+gulp.task('build', function (cb) {
+  var runSequence = require('run-sequence');
+
+  return runSequence('clean', ['img', 'data', 'css'], 'index', cb);
 });
 
 gulp.task('data', function () {
-  gulp.src('./data/**')
-    .pipe(gulp.dest('./dist/data'));
+  return gulp.src('./data/**').pipe(gulp.dest('./dist/data'));
 });
 
 gulp.task('fileinclude', function () {
-  gulp.src(['index.html'])
+  return gulp.src(['index.html'])
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
