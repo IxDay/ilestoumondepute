@@ -13,22 +13,27 @@ $(document).ready(function () {
     'pour': {
       'color': '#FC4349',
       'msg': 'Ce député <span style="color: {{color}}">a voté pour</span>' +
-        ' lors du vote du 14 avril',
+        ' lors du vote du 5 mai',
     },
     'contre': {
       'color': '#79BDE0',
       'msg': 'Ce député <span style="color: {{color}}">a voté contre' +
-        '</span> lors du vote du 14 avril'
+        '</span> lors du vote du 5 mai'
     },
     'absent': {
       'color': '#818f9d',
       'msg': 'Ce député était <span style="color: {{color}}">absent</span>' +
-        ' lors du vote du 14 avril'
+        ' lors du vote du 5 mai'
     },
     'abstention': {
       'color': '#293540',
-      'msg': 'Ce député <span style="color: {{color}}>s\'est abstenue' +
-        '</span> lors du vote du 14 avril'
+      'msg': 'Ce député <span style="color: {{color}}">s\'est abstenu' +
+        '</span> lors du vote du 5 mai'
+    },
+    'non-votant': {
+      'color': '#818f9d',
+      'msg': 'Ce député était <span style="color: {{color}}">non votant' +
+        '</span> lors du vote du 5 mai'
     }
   };
   $.each(msg_vote, function (_, elt) {
@@ -73,6 +78,7 @@ $(document).ready(function () {
         $(circo).attr('class', 'circo ' + depute.votePJL);
       });
     });
+    console.log(deputes['claude-bartolone']);
     return deputes;
   });
 

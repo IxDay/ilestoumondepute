@@ -295,6 +295,9 @@ header .subtitle {
 .circo.abstention {
     fill: #293540;
 }
+.circo.non-votant {
+    fill: red;
+}
 
 .titre {
     font-size:40px;
