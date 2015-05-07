@@ -4,6 +4,13 @@ var fs = require('fs');
 var deputes = require('./deputes.json');
 var votes = require('./votes.json');
 
+// some slug does not correspond, so here is a mapping
+var deputes_invalid_slug = {
+  'pierre-morel-a-lhuissier': 'pierre-morel-a-l-huissier',
+  'kheira-bouziane-laroussi': 'kheira-bouziane',
+  'genevieve-gosselin-fleury': 'genevieve-gosselin'
+};
+
 function slugMe (value) {
   var rExps=[
   {re:/[\xC0-\xC6]/g, ch:'A'},
@@ -30,7 +37,6 @@ function slugMe (value) {
   // 4) enlève les doubles tirets
   return value.toLowerCase()
     .replace(/\s+/g, '-')
-    .replace(/\'/g, '-')
     .replace(/[^a-z0-9-]/g, '')
     .replace(/\-{2,}/g,'-');
 };
@@ -45,11 +51,14 @@ _.each(votes, function (party) {
   _.each(party, function (deputes_name, choice) {
     choice = slugMe(choice);
     _.each(deputes_name, function (depute_name) {
-      var depute = slug_deputes[slugMe(depute_name)];
+      depute_name = slugMe(depute_name);
+      var depute = slug_deputes[depute_name] ||
+        slug_deputes[deputes_invalid_slug[depute_name]];
       if (!depute) {
-        console.log(slugMe(depute_name));
+        console.log(depute_name);
         return;
       }
+
       depute.votePJL = choice;
     });
   });
